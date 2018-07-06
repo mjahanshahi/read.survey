@@ -2,7 +2,7 @@
 #'
 #' This function will open an xlsx or csv file containing the export of a Surveymonkey survey and deal with problems arising from the fact that variable information is included in the second row.
 #' @param filename Name of the file to be opened.
-#' @param format Format of the file. Defaults to xlsx.
+#' @param format Format of the file. Defaults to csv.
 #' @param convert Because Surveymonkey uses the second row for answer categories and other information, numeric variables will be converted to factors. If convert is set to TRUE, numeric variables containing only numbers will be converted (back) to numeric. Note that this need not always be the desired behaviour. Defaults to FALSE.
 #' @return dataframe
 #' @keywords 'Surveymonkey'
@@ -11,16 +11,12 @@
 #' download.file('http://help.surveymonkey.com/servlet/servlet.FileDownload?file=01530000002hfBp', 'test.xlsx', method = 'curl') # Surveymonkey example export file
 #' data <- read.surveymonkey('test.xlsx', convert = TRUE)
 
-read.surveymonkey <- function(filename, format = 'xlsx', convert = FALSE){
-  if (format == 'xlsx'){
-    library(xlsx)
-    data <- read.xlsx(filename, 1)
-  }
-  else if (format == 'csv') {
+read.surveymonkey <- function(filename, format = 'csv', convert = FALSE){
+  if (format == 'csv') {
     data <- read.csv(filename)
   }
   else {
-    print("Format needs to be 'csv' or 'xlsx'")
+    print("Format needs to be 'csv'")
   }
   prefix <- ''
   for (i in 1:length(names(data))){

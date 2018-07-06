@@ -6,7 +6,7 @@
 Read Surveymonkey file
 }
 \description{
-Prepare data from Surveymonkey xlsx or csv file for analysis.
+Prepare data from Surveymonkeycsv file for analysis.
 }
 \details{
 \tabular{ll}{
@@ -16,7 +16,7 @@ Version: \tab 1.0\cr
 Date: \tab 2015-02-09\cr
 License: \tab MIT\cr
 }
-read.survey(filename, format = 'xlsx', convert = FALSE) opens Surveymonkey export file.
+read.survey(filename, format = 'csv', convert = FALSE) opens Surveymonkey export file.
 }
 \author{
 Dirk Kloosterboer

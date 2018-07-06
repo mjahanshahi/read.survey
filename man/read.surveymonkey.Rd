@@ -4,12 +4,12 @@
 \alias{read.surveymonkey}
 \title{Read Surveymonkey file}
 \usage{
-read.surveymonkey(filename, format = "xlsx", convert = FALSE)
+read.surveymonkey(filename, format = "csv", convert = FALSE)
 }
 \arguments{
 \item{filename}{Name of the file to be opened.}
 
-\item{format}{Format of the file. Defaults to xlsx.}
+\item{format}{Format of the file. Defaults to csv.}
 
 \item{convert}{Because Surveymonkey uses the second row for answer categories and other information, numeric variables will be converted to factors. If convert is set to TRUE, numeric variables containing only numbers will be converted (back) to numeric. Note that this need not always be the desired behaviour. Defaults to FALSE.}
 }
@@ -20,8 +20,8 @@ dataframe
 This function will open an xlsx or csv file containing the export of a Surveymonkey survey and deal with problems arising from the fact that variable information is included in the second row.
 }
 \examples{
-download.file('http://help.surveymonkey.com/servlet/servlet.FileDownload?file=01530000002hfBp', 'test.xlsx', method = 'curl') # Surveymonkey example export file
-data <- read.surveymonkey('test.xlsx', convert = TRUE)
+download.file('http://help.surveymonkey.com/servlet/servlet.FileDownload?file=01530000002hfBp', 'test.csv', method = 'curl') # Surveymonkey example export file
+data <- read.surveymonkey('test.csv', convert = TRUE)
 }
 \keyword{'Surveymonkey'}
 
